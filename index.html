@@ -126,7 +126,10 @@ and a cozy wrap-up), and every answer your child gives shapes what happens next.
   <strong>The narration is generated on your phone.</strong> Story Spark uses the open-source
   <a href="https://github.com/hexgrad/kokoro">Kokoro</a> neural text-to-speech model running locally
   via <a href="https://github.com/mlalma/kokoro-ios">kokoro-ios</a> and Apple's MLX framework —
-  far more natural than the built-in iOS voices, and no audio ever leaves the device.
+  far more natural than the built-in iOS voices, and the audio never leaves the device.
+  With the on-device Apple story model, the story text stays on the phone too; if you opt into a
+  Google Gemini model, story text (but never audio) is sent to Google's API to generate each scene —
+  see the <a href="#privacy-details">privacy table</a> below.
 </div>
 
 <h2>How it works</h2>
@@ -217,7 +220,7 @@ normal family use. Live quotas for your key are shown at
   under the talk button is always available as a fallback.</p>
 </details>
 
-<h2>Privacy</h2>
+<h2 id="privacy-details">Privacy</h2>
 <table>
   <tr><th>Data</th><th>Where it goes</th></tr>
   <tr><td>Narration audio (text-to-speech)</td><td>Generated fully on-device. Never leaves the phone.</td></tr>
