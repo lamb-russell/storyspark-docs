@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Spark — Voice-first interactive stories for kids</title>
+<meta name="description" content="Story Spark is an iPhone app that tells interactive, voice-first adventures for kids aged 4–7, with natural on-device narration and on-device or cloud story generation.">
+<style>
+  :root {
+    --bg: #fffdf8;
+    --text: #2b2620;
+    --muted: #6f675c;
+    --accent: #e07a2f;
+    --accent-soft: #fbe8d7;
+    --card: #ffffff;
+    --border: #eadfd0;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1915;
+      --text: #f0e9df;
+      --muted: #a89c8c;
+      --accent: #f0913f;
+      --accent-soft: #3a2c1e;
+      --card: #26221c;
+      --border: #3a342b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+  header {
+    text-align: center;
+    padding: 3.5rem 1rem 2.5rem;
+  }
+  header .spark { font-size: 3rem; }
+  header h1 { margin: 0.3rem 0 0.4rem; font-size: 2.4rem; }
+  header p.tagline { color: var(--muted); font-size: 1.15rem; margin: 0; }
+  h2 {
+    margin-top: 2.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid var(--accent-soft);
+  }
+  h3 { margin-top: 1.6rem; }
+  a { color: var(--accent); }
+  code {
+    background: var(--accent-soft);
+    padding: 0.1rem 0.35rem;
+    border-radius: 5px;
+    font-size: 0.92em;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+  }
+  .steps { counter-reset: step; list-style: none; padding: 0; }
+  .steps li {
+    counter-increment: step;
+    margin: 0.8rem 0;
+    padding-left: 2.4rem;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0; top: 0.15rem;
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; }
+  details { margin: 0.6rem 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding: 2rem 1rem 3rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="spark">✨</div>
+  <h1>Story Spark</h1>
+  <p class="tagline">Voice-first interactive adventures for kids aged 4–7, told out loud on your iPhone.</p>
+</header>
+
+<main>
+
+<h2>What is Story Spark?</h2>
+<p>
+Story Spark is an iPhone storytelling app. A warm, natural narrator voice tells a short adventure
+starring a hero your child chooses, and your child steers the story by <strong>talking back</strong> —
+no reading or typing required. Each story runs a classic arc (opening, rising action, a twist, a climax,
+and a cozy wrap-up), and every answer your child gives shapes what happens next.
+</p>
+<div class="card">
+  <strong>The narration is generated on your phone.</strong> Story Spark uses the open-source
+  <a href="https://github.com/hexgrad/kokoro">Kokoro</a> neural text-to-speech model running locally
+  via <a href="https://github.com/mlalma/kokoro-ios">kokoro-ios</a> and Apple's MLX framework —
+  far more natural than the built-in iOS voices, and no audio ever leaves the device.
+</div>
+
+<h2>How it works</h2>
+<ol class="steps">
+  <li><strong>Pick a hero and a place</strong> — or tap the dice for a surprise. You can speak the
+      character's name and role using the mic buttons in Story Setup.</li>
+  <li><strong>Tap Start Story</strong> and listen. The narrator reads each scene aloud.</li>
+  <li><strong>When the narrator asks what happens next, tap the big button and talk!</strong>
+      Your child's answer becomes part of the story.</li>
+</ol>
+<p>
+Favorite heroes are saved automatically, so recurring characters can come back for
+"another adventure" with one tap when a story ends. Story length (Short, Medium, Long) and
+story flavor (Sweet, Salty, Zesty, Spicy — from extra-cozy to big silly thrills) are adjustable
+in the settings sheet.
+</p>
+
+<h2>Choosing a story model</h2>
+<p>Story Spark can generate stories two ways. Pick in the gear menu under <em>Story model</em>.</p>
+
+<h3>Option 1: On-device (Apple) — no account needed</h3>
+<p>
+On iPhones that support Apple Intelligence (iPhone 15 Pro or newer, iOS 26+), Story Spark can use
+Apple's built-in on-device language model. Stories generate entirely on the phone — no API key,
+no internet, no rate limits.
+</p>
+<div class="card">
+  Enable it in <strong>Settings → Apple Intelligence &amp; Siri</strong> on your iPhone, then pick
+  <strong>On-device (Apple)</strong> at the top of the model list in Story Spark.
+  Note: Apple's model has strict built-in content filters. If the narrator says it "cannot tell this
+  one," try a gentler hero or setting — or switch to a Gemini model, which handles imaginative
+  kid-story material more flexibly.
+</div>
+
+<h3>Option 2: Google Gemini — richer stories, needs a free API key</h3>
+<p>
+Google's Gemini models write more inventive prose. You'll need a free API key:
+</p>
+<ol class="steps">
+  <li>Visit <a href="https://aistudio.google.com/apikey">aistudio.google.com/apikey</a> and sign in
+      with a Google account.</li>
+  <li>Click <strong>Create API key</strong> and copy it.</li>
+  <li>In Story Spark, open the gear menu, paste the key under <strong>Gemini API key</strong>, and tap
+      <strong>Save to Keychain</strong>. The key is stored only in your device's Keychain.</li>
+  <li>Pick a model under <strong>Story model</strong>. The list is fetched live from Google, so it
+      always shows what your key can use. <code>gemini-flash-latest</code> is a great default;
+      a <code>flash-lite</code> model gives the most generous free-tier limits.</li>
+</ol>
+<p>
+Google's free tier allows roughly 10–15 requests per minute and ~1,500 per day for Flash-class
+models. A full story uses about 4–8 requests, so free-tier limits are effectively invisible in
+normal family use. Live quotas for your key are shown at
+<a href="https://aistudio.google.com/rate-limit">aistudio.google.com/rate-limit</a>.
+</p>
+
+<h2>Tips &amp; troubleshooting</h2>
+
+<details>
+  <summary>The narrator's voice doesn't play, or is very quiet</summary>
+  <p>Check the silent switch and volume first. Narration plays through the loudspeaker; if you're on
+  Bluetooth headphones or a speaker, it follows those. The speaker icon in the top-left corner shows
+  green when the Kokoro voice is ready.</p>
+</details>
+
+<details>
+  <summary>Tap any story line to hear it again</summary>
+  <p>Every narrator bubble has a small speaker icon — tap the bubble to replay that line.</p>
+</details>
+
+<details>
+  <summary>"The storyteller cannot tell this one"</summary>
+  <p>Apple's on-device model declined the scene due to its built-in safety filters, which can be
+  overly cautious with spooky or action-y kid themes. Adjust the hero or setting, or switch to a
+  Gemini model in the gear menu.</p>
+</details>
+
+<details>
+  <summary>"Model not found" errors with Gemini</summary>
+  <p>Google retires model names over time. Open the gear menu and tap
+  <strong>Refresh model list</strong>, then pick a current model. Rolling aliases like
+  <code>gemini-flash-latest</code> avoid this problem.</p>
+</details>
+
+<details>
+  <summary>Speech recognition misses words</summary>
+  <p>Recognition happens on-device via iOS. It transcribes as your child speaks — the text appears
+  under the talk button, and the fields stay editable if a name comes out wrong. "Type instead"
+  under the talk button is always available as a fallback.</p>
+</details>
+
+<h2>Privacy</h2>
+<table>
+  <tr><th>Data</th><th>Where it goes</th></tr>
+  <tr><td>Narration audio (text-to-speech)</td><td>Generated fully on-device. Never leaves the phone.</td></tr>
+  <tr><td>Your child's voice</td><td>Transcribed by iOS speech recognition. Audio is not stored by the app.</td></tr>
+  <tr><td>Story text</td><td>Stays on-device with the Apple model. With a Gemini model, story text is sent to Google's API under your own key.</td></tr>
+  <tr><td>Gemini API key</td><td>Stored only in the iOS Keychain on your device.</td></tr>
+  <tr><td>Saved heroes &amp; stories</td><td>Stored locally on the phone. Stories are only shared if you tap Share.</td></tr>
+</table>
+<p>Story Spark has no accounts, no analytics, and no ads.</p>
+
+<h2>Requirements</h2>
+<table>
+  <tr><th>Feature</th><th>Requires</th></tr>
+  <tr><td>Story Spark app</td><td>iPhone with iOS 26 or later</td></tr>
+  <tr><td>On-device story model</td><td>iPhone 15 Pro or newer with Apple Intelligence enabled</td></tr>
+  <tr><td>Gemini story models</td><td>Any supported iPhone, a free Google API key, and internet</td></tr>
+</table>
+
+<footer>
+  Story Spark is in active development.<br>
+  Narration by <a href="https://github.com/hexgrad/kokoro">Kokoro TTS</a> ·
+  Built with <a href="https://github.com/ml-explore/mlx-swift">MLX Swift</a>
+</footer>
+</main>
+</body>
+</html>
